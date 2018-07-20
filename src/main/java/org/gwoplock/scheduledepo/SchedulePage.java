@@ -2,12 +2,17 @@ package org.gwoplock.scheduledepo;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.nodes.Node;
+import org.jsoup.select.Elements;
 
 class SchedulePage {
-	Document _doc;
+	private Document _doc;
+	private ArrayList<Element> _daysWorking = null;
 
 	public SchedulePage() {
 
@@ -19,5 +24,20 @@ class SchedulePage {
 
 	public SchedulePage(Document doc) {
 		this._doc = doc;
+	}
+
+	public ArrayList<Element> getDaysWorking() {
+		if (_daysWorking == null) {
+			_daysWorking = new ArrayList<Element>();
+			Elements hours = _doc.getElementsByClass("hours");
+			for (Element hour : hours) {
+				if (hour.hasClass("child8")) {
+
+				} else {
+					_daysWorking.add(hour.parent());
+				}
+			}
+		}
+		return _daysWorking;
 	}
 }
