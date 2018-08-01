@@ -1,5 +1,7 @@
 package org.gwoplock.scheduledepo;
 
+import org.gwoplock.scheduledepo.dateAndTime.*;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -14,7 +16,7 @@ class SchedulePage {
 	private Document _doc;
 	private ArrayList<Element> _daysWorking = null;
 
-	public SchedulePage() {
+	private SchedulePage() {
 
 	}
 
