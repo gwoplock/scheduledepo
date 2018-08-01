@@ -12,7 +12,9 @@ class Date {
 	}
 
 	public Date(int day, int month, int year) {
-
+		_day = day;
+		_month = month;
+		_year = year;
 		if (!isValidDate(this)) {
 			throw new IllegalArgumentException(
 					"The date (" + _day + "/" + _month + "/" + _year + " (D/M/Y)) given was invalid");
