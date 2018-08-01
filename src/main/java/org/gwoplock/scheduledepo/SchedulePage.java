@@ -1,7 +1,5 @@
 package org.gwoplock.scheduledepo;
 
-import org.gwoplock.scheduledepo.dateAndTime.*;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,7 +7,6 @@ import java.util.ArrayList;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
-import org.jsoup.nodes.Node;
 import org.jsoup.select.Elements;
 
 class SchedulePage {

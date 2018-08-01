@@ -60,7 +60,7 @@ public class Time {
 	/**
 	 * @return the _timeZone
 	 */
-	public int getTimeZone() {
+	public double getTimeZone() {
 		return _timeZone;
 	}
 
@@ -88,7 +88,7 @@ public class Time {
 	/**
 	 * @param _timeZone the _timeZone to set
 	 */
-	public void setTimeZone(int _timeZone) {
+	public void setTimeZone(double _timeZone) {
 		this._timeZone = _timeZone;
 	}
 
