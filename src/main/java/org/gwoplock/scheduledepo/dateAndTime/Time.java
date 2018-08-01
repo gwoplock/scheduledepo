@@ -4,12 +4,8 @@ import java.util.TimeZone;
 import java.util.GregorianCalendar;
 import java.util.Calendar;
 
-enum TIMEZONE {
-	EASTERN, CENTRAL, MOUNTAN, PASIFIC
-}
-
-class Time {
-	private TIMEZONE _timeZone;
+public class Time {
+	private double _timeZone;
 	private int _hour;
 	private int _min;
 	private int _second;
@@ -22,7 +18,7 @@ class Time {
 		this(hr, min, getCurrentTimeZone());
 	}
 
-	public Time(int hr, int min, TIMEZONE tz) {
+	public Time(int hr, int min, double tz) {
 		this(hr, min, 0, tz);
 	}
 
@@ -30,7 +26,7 @@ class Time {
 		this(hr, min, sec, getCurrentTimeZone());
 	}
 
-	public Time(int hr, int min, int sec, TIMEZONE tz) {
+	public Time(int hr, int min, int sec, double tz) {
 		_hour = hr;
 		_min = min;
 		_second = sec;
@@ -64,7 +60,7 @@ class Time {
 	/**
 	 * @return the _timeZone
 	 */
-	public TIMEZONE getTimeZone() {
+	public int getTimeZone() {
 		return _timeZone;
 	}
 
@@ -92,33 +88,18 @@ class Time {
 	/**
 	 * @param _timeZone the _timeZone to set
 	 */
-	public void setTimeZone(TIMEZONE _timeZone) {
+	public void setTimeZone(int _timeZone) {
 		this._timeZone = _timeZone;
 	}
 
-	public static TIMEZONE getCurrentTimeZone() {
+	public static double getCurrentTimeZone() {
 		String offset = getCurrentTimezoneOffset();
 		int minSepLoc = offset.indexOf(":");
 		String hrOffsetStr = offset.substring(0, minSepLoc);
 		int hrOffset = Integer.parseInt(hrOffsetStr);
-		switch (hrOffset) {
-		case -5: {
-			return TIMEZONE.EASTERN;
-		}
-		case -6: {
-			return TIMEZONE.CENTRAL;
-		}
-		case -7: {
-			return TIMEZONE.MOUNTAN;
-		}
-		case -8: {
-			return TIMEZONE.PASIFIC;
-		}
-		default: {
-			throw new IllegalArgumentException(
-					"the TimeZone calculated (UTC " + hrOffsetStr + ") didnt match any known timezone");
-		}
-		}
+		String minOffsetStr = offset.substring(minSepLoc + 1, offset.length());
+		int minOffset = Integer.parseInt(minOffsetStr);
+		return (hrOffset + ((double) minOffset / (double) 60));
 	}
 
 	public static boolean isValidTime(Time time) {

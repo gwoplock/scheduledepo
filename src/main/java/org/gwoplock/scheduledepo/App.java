@@ -2,10 +2,13 @@ package org.gwoplock.scheduledepo;
 
 import java.io.File;
 import java.io.IOException;
-//import org.gwoplock.scheduledepo.SchedulePage;
+import org.gwoplock.scheduledepo.dateAndTime.Time;
 
 public class App {
     public static void main(String[] args) {
+
+        System.out.println(Time.getCurrentTimeZone());
+
         File toRead = null;
         if (args.length == 0) {
             toRead = new File("sched.html");
