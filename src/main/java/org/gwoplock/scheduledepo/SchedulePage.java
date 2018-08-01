@@ -31,7 +31,7 @@ class SchedulePage {
 			_daysWorking = new ArrayList<Element>();
 			Elements hours = _doc.getElementsByClass("hours");
 			for (Element hour : hours) {
-				if (hour.hasClass("child8")) {
+				if (hour.parent().hasClass("child8")) {
 
 				} else {
 					_daysWorking.add(hour.parent());

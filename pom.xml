@@ -34,6 +34,7 @@
               <version>1.2.1</version>
               <configuration>
                  <mainClass>org.gwoplock.scheduledepo.App</mainClass>
+                 <commandlineArgs>/home/garrett/Documents/programing/scheduledepo/sched.htm</commandlineArgs>
              </configuration>
           </plugin>
       </plugins>
